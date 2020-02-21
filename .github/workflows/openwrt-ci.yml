@@ -104,10 +104,20 @@ jobs:
           # 
           # 编译树莓派3B固件:
           cat >> .config <<EOF
-          CONFIG_TARGET_brcm27XX=y
-          CONFIG_TARGET_brcm27XX_bcm2710=y
-          CONFIG_TARGET_brcm27XX_bcm2710_DEVICE_rpi-3=y
-          # CONFIG_TARGET_BOARD="bcm27xx"
+          CONFIG_TARGET_bcm27xx=y
+          CONFIG_TARGET_bcm27xx_bcm2710=y
+          CONFIG_TARGET_bcm27xx_bcm2710_DEVICE_rpi-3=y
+          CONFIG_TARGET_BOARD="bcm27xx"
+          CONFIG_TARGET_SUBTARGET="bcm2710"
+          CONFIG_TARGET_PROFILE="DEVICE_rpi-3"
+          CONFIG_TARGET_ARCH_PACKAGES="aarch64_cortex-a53"
+          CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a53"
+          CONFIG_CPU_TYPE="cortex-a53"
+          CONFIG_DEFAULT_bcm27xx-gpu-fw=y
+          CONFIG_DEFAULT_cypress-firmware-43430-sdio=y
+          CONFIG_DEFAULT_cypress-firmware-43455-sdio=y
+          CONFIG_DEFAULT_cypress-nvram-43430-sdio-rpi-3b=y
+          CONFIG_DEFAULT_cypress-nvram-43455-sdio-rpi-3b-plus=y
           EOF
           # 固件压缩:
           cat >> .config <<EOF
@@ -183,8 +193,8 @@ jobs:
           EOF
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
           cat >> .config <<EOF
-          # CONFIG_TARGET_IMAGES_PAD is not set
-          # CONFIG_VMDK_IMAGES is not set
+          CONFIG_TARGET_IMAGES_PAD is not set
+          CONFIG_VMDK_IMAGES is not set
           EOF
           # 
           # ========================固件定制部分结束========================

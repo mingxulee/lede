@@ -103,11 +103,11 @@ jobs:
           # 无论你想要对固件进行怎样的定制, 都需要且只需要修改 EOF 回环内的内容.
           # 
           # 编译树莓派3B固件:
-          # CONFIG_TARGET_brcm27XX_bcm2710=y
           cat >> .config <<EOF
           CONFIG_TARGET_brcm27XX=y
+          CONFIG_TARGET_brcm27XX_bcm2710=y
           CONFIG_TARGET_brcm27XX_bcm2710_DEVICE_rpi-3=y
-          CONFIG_TARGET_BOARD="bcm27xx"
+          # CONFIG_TARGET_BOARD="bcm27xx"
           EOF
           # 固件压缩:
           cat >> .config <<EOF

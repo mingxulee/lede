@@ -104,9 +104,9 @@ jobs:
           # 
           # 编译树莓派3B固件:
           cat >> .config <<EOF
-          CONFIG_TARGET_brcm2708=y
-          CONFIG_TARGET_brcm2708_bcm2710=y
-          CONFIG_TARGET_brcm2708_bcm2710_DEVICE_rpi-3=y
+          CONFIG_TARGET_brcm27XX=y
+          CONFIG_TARGET_brcm27XX_bcm2710=y
+          CONFIG_TARGET_brcm27XX_bcm2710_DEVICE_rpi-3=y
           EOF
           # 固件压缩:
           cat >> .config <<EOF
